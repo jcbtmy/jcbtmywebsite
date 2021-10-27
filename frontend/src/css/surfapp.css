@@ -1,0 +1,55 @@
+.leaflet-container{
+	width: auto;
+	height: 300px;
+	margin-top: 5px;
+	padding: 4px;
+	border: 1px solid grey;
+	z-index: 0;
+}
+
+.Select.is-open{
+	z-index: 999;
+}
+
+.Chart{
+	width: auto;
+	height: auto;
+}
+
+.Map{
+	width:"30vw";
+	height: "30vh"
+}
+
+.SurfApp {
+  	vertical-align: top;
+  	width: 45vw;
+  	height: auto;
+	margin-left:auto;
+	margin-right: auto;
+  	background-color: white;
+	border: 1px solid lightgrey;
+	padding: 15px;
+	justify-content: center;
+	align-items: center;
+}
+
+.SurfText{
+	text-align: left;
+	border: 1px solid grey;
+	padding: 4px;
+	margin-top: 5px;
+}
+
+.app{
+  justify-content: center;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  text-align: center;
+  width: auto;
+  gap: 12px;
+  padding: 12px;
+  overflow-x: hidden;
+  
+}

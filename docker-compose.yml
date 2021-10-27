@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+
+    server: 
+        image: jcbtmy/website:latest
+        env_file:
+            - .env
+        ports:
+            - "80:80"
+        environment: 
+            - EMAIL_USERNAME
+            - EMAIL_PASS
+        container_name: website
+        depends_on:
+            - database
+
+    database:
+        image: mongo:latest
+        container_name: database
+        volumes: 
+            - websitedb:/data/db
+        
+volumes:
+    websitedb:
