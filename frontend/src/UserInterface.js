@@ -206,11 +206,16 @@ class UserInterface extends React.Component {
               in={true}
             >
               <Box minHeight="115vh" display="flex" flexDirection="column" ref={this.homeRef} style={{gap:"1.5vh"}}>
-                <Typography variant="h2" style={{marginLeft: "5vw", marginTop: "30vh", fontWeight: 800, display:"inline-block"}}>
-                  Jacob Toomey 
-                </Typography>
-                <Typography variant="h6" style={{marginLeft: "5vw", fontWeight: 800, color: "#E75480"}}>Applications Engineer</Typography>
-                <Typography variant="body1" style={{marginLeft: "5vw", fontWeight: 550}}>Solving human problems with technical solutions</Typography>
+                <Box display="flex" width={1} alignItems="center">
+                  <Box>
+                    <Typography variant="h2" style={{marginLeft: "5vw", marginTop: "30vh", fontWeight: 800, display:"inline-block"}}>
+                      Jacob Toomey 
+                    </Typography>
+                    <Typography variant="h6" style={{marginLeft: "5vw", fontWeight: 800, color: "#E75480"}}>Applications Engineer</Typography>
+                    <Typography variant="body1" style={{marginLeft: "5vw", fontWeight: 550}}>Solving human problems with technical solutions</Typography>
+                  </Box>
+                  <img style={{marginLeft: "10vw", marginTop: 20,width: "15vw", height: "auto", borderRadius: "5%", alignSelf:"flex-end", }} src="/images/Headshot.png" alt="My Big Dumb Head"/>
+                </Box>
                 <GoToButton onClick={() => this.setPage(0)}>
                   About Me
                 </GoToButton>
