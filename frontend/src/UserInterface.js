@@ -219,9 +219,11 @@ class UserInterface extends React.Component {
                 </NavTab>
               </NavTabs>
               <Tooltip title="Github Account">
-                <IconButton>
-                    <GitHub />
-                </IconButton>
+                <Link href="https://github.com/jcbtmy?tab=repositories">
+                  <IconButton>
+                      <GitHub />
+                  </IconButton>
+                </Link>
               </Tooltip>               
           </Nav>
           <Box width={1} height="100%" overflow="hidden">
