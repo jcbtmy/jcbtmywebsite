@@ -33,8 +33,9 @@ namespace ProjectSite.Controllers
         string createImage (int[][] map, int rows, int cols)
         {
             Bitmap image = new Bitmap(cols, rows);
-
-            for(int i = 0; i < rows; i++)
+            
+            //every row in the bitmap, color black if the automata cell is 1 else color white
+            for(int i = 0; i < rows; i++) 
             {
                 for(int j = 0; j < cols; j++)
                 {
@@ -80,7 +81,7 @@ namespace ProjectSite.Controllers
             foreach(var character in input)
             {
                 num = Convert.ToInt32(character);
-        
+                //get positon of bit based on value of char
                 for(int i = 7; i >= 0; i--)
                 {
                     bitIndexValue = (int)Math.Pow((double)2, (double)i);
@@ -106,9 +107,10 @@ namespace ProjectSite.Controllers
             {
                 int num = 0;
 
+                //get the char value based on bit position, add to string
                 for(int j = 0; j < 8; j++)
                 {
-                    if(array[i + j] == 1)
+                    if(array[i + j] == 1) 
                     {
                         num += (int)Math.Pow((double)2, (double) j);
                     }
@@ -197,15 +199,17 @@ namespace ProjectSite.Controllers
 
                 for(int i = 1; i < iterations; i++)
                 {
+                    //create next row of automata
                     newData[i] = new int[colWidth];
 
                     for(int j = 0; j < colWidth; j++)
                     {   
+                        //get previous row neighbors
                         int top = newData[i - 1][j];
                         int topRight = (j + 1 ) < colWidth ? newData[i - 1][j + 1] : 0;
                         int topLeft = (j - 1) >= 0 ? newData[i - 1][j - 1] : 0;
 
-                        foreach(var r in rule.ruleSet)
+                        foreach(var r in rule.ruleSet) //check the state against all rules in a ruleset
                         {
                             if( (top == r[CARule.TOP]) && (topRight == r[CARule.RIGHT]) && (topLeft == r[CARule.LEFT]))
                             {
@@ -222,10 +226,10 @@ namespace ProjectSite.Controllers
                     finalstate[i] = newData[iterations - 1][i];
                 }
 
-                newHash.outputHash = bitArrayToHexString(finalstate);
-                newHash.imageData = createImage(newData, (int)iterations, colWidth);
+                newHash.outputHash = bitArrayToHexString(finalstate); //create outpush hash from bitarray 
+                newHash.imageData = createImage(newData, (int)iterations, colWidth); //create image
 
-                allRuleHashes.Add(newHash);
+                allRuleHashes.Add(newHash); 
             }
            
             return allRuleHashes;

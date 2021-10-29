@@ -71,11 +71,12 @@ namespace ProjectSite.Controllers
         {
             Station station = await _stationService.Get(id);
 
+            //is it a valid station in our set
             if(station == null)
             {
                 return NotFound();
             }
-
+            //go grab spectral wave sizes data from the NDBC API
             try{ 
 
                 HttpResponseMessage response = await _httpClient.GetAsync($"http://www.ndbc.noaa.gov/data/realtime2/{station.station_id}.spec");
@@ -102,11 +103,13 @@ namespace ProjectSite.Controllers
         {
             Station station = await _stationService.Get(id);
 
+            //is it a valid station in our set
             if(station == null)
             {
                 return NotFound();
             }
 
+            //grab temperature data from NDBC API
             try{ 
 
                 HttpResponseMessage response = await _httpClient.GetAsync($"http://www.ndbc.noaa.gov/data/realtime2/{station.station_id}.txt");
