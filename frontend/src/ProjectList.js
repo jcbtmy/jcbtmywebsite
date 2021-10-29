@@ -21,6 +21,7 @@ export const ProjectList = [
       {
         title:"Cellular Automata Hash",
         demo: "/demo/cellular-hashing",
+        github:"https://github.com/jcbtmy/jcbtmywebsite/blob/main/backend/Controllers/CAHashingController.cs",
         thumbnail: "images/rule.png",
         description: `API to hash input with cellular automata. Returns output, image, and different rules for hashes`,
         libs : ["C#" , ".NET", "MongoDB","React"],
@@ -29,6 +30,7 @@ export const ProjectList = [
       {
         title:"Cellular Automata Background",
         demo: "/demo/cellular-background",
+        github: "https://github.com/jcbtmy/jcbtmywebsite/blob/main/frontend/src/StyledTags/Background.js",
         thumbnail: "images/ca.gif",
         description: `2D cellular automata simulation made with React states.`,
         libs : ["React", "Javascript"],
@@ -37,7 +39,7 @@ export const ProjectList = [
         title : "Cloud Animations",
         demo: "/demo/clouds",
         thumbnail: "/images/clouds.gif",
-        github: "",
+        github: "https://github.com/jcbtmy/jcbtmywebsite/blob/main/frontend/public/src/clouds.js",
         libs : ["Javascript"],
         description: `
           Randomized cloud animations with javascript and css
