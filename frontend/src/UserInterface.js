@@ -82,9 +82,36 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "auto",
     },
 
+    imageHeadShot: {
+      opacity: 0.0,
+      marginLeft: "10vw", 
+      marginTop: 20,
+      width: "15vw", 
+      height: "auto", 
+      borderRadius: "5%", 
+      alignSelf:"flex-end",
+      transitionDelay: 300,
+      transition:"all 1s ease",
+    }
+
 }));
 
+function HeadShotImage(props)
+{
+  const classes = useStyles();
 
+  const [loaded, setLoaded] = React.useState(null);
+
+  return( 
+    <img 
+      className={classes.imageHeadShot}
+      style={(loaded) ? {opacity: 1} : {}}
+      src={props.src}
+      alt={props.alt}
+      onLoad={() => setLoaded(true)}
+    />
+  )
+}
 
 
 function Display(props) {
@@ -131,7 +158,6 @@ class UserInterface extends React.Component {
       this.contactRef = React.createRef();
   }
 
-
   setPage = (index) => {
     this.setState({page: index, backgroundOn: false});
     
@@ -160,7 +186,7 @@ class UserInterface extends React.Component {
 
   render(){
 
-    const {page, transform}  = this.state;
+    const {page, transform, imageLoaded}  = this.state;
 
     return (
       <ThemeProvider theme={theme}>
@@ -199,28 +225,28 @@ class UserInterface extends React.Component {
               </Tooltip>               
           </Nav>
           <Box width={1} height="100%" overflow="hidden">
-            <Fade
-              mountOnEnter
-              unmountOnExit
-              timeout={{ enter: 900, exit: 500 }}
-              in={true}
-            >
-              <Box minHeight="115vh" display="flex" flexDirection="column" ref={this.homeRef} style={{gap:"1.5vh"}}>
+              <Box minHeight="115vh" display="flex" flexDirection="column" ref={this.homeRef} style={{gap:"1.5vh"}}>        
                 <Box display="flex" width={1} alignItems="center">
-                  <Box>
-                    <Typography variant="h2" style={{marginLeft: "5vw", marginTop: "30vh", fontWeight: 800, display:"inline-block"}}>
-                      Jacob Toomey 
-                    </Typography>
-                    <Typography variant="h6" style={{marginLeft: "5vw", fontWeight: 800, color: "#E75480"}}>Applications Engineer</Typography>
-                    <Typography variant="body1" style={{marginLeft: "5vw", fontWeight: 550}}>Solving human problems with technical solutions</Typography>
-                  </Box>
-                  <img style={{marginLeft: "10vw", marginTop: 20,width: "15vw", height: "auto", borderRadius: "5%", alignSelf:"flex-end", }} src="/images/Headshot.png" alt="My Big Dumb Head"/>
+                  <Fade
+                    mountOnEnter
+                    unmountOnExit
+                    timeout={{ enter: 900, exit: 500 }}
+                    in={true}
+                  >
+                    <Box>
+                      <Typography variant="h2" style={{marginLeft: "5vw", marginTop: "30vh", fontWeight: 800, display:"inline-block"}}>
+                        Jacob Toomey 
+                      </Typography>
+                      <Typography variant="h6" style={{marginLeft: "5vw", fontWeight: 800, color: "#E75480"}}>Applications Engineer</Typography>
+                      <Typography variant="body1" style={{marginLeft: "5vw", fontWeight: 550}}>Solving human problems with technical solutions</Typography>
+                    </Box>
+                  </Fade>
+                  <HeadShotImage src="/images/Headshot.png" alt="My Big Dumb Head"/>
                 </Box>
                 <GoToButton onClick={() => this.setPage(0)}>
                   About Me
                 </GoToButton>
               </Box>
-            </Fade>
               <Display>
                     <Box minHeight="115vh" display="flex" flexDirection="column" mx="auto" ref={this.aboutRef}>
                       <About />
