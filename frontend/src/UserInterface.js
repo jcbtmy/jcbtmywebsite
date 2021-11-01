@@ -186,7 +186,7 @@ class UserInterface extends React.Component {
 
   render(){
 
-    const {page, transform, imageLoaded}  = this.state;
+    const {page, transform}  = this.state;
 
     return (
       <ThemeProvider theme={theme}>
