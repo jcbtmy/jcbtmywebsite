@@ -60,18 +60,19 @@ class CAHashing extends React.Component{
             rules: null,
             iterations: null,
             loading: false,
+            error: null,
         };
     }
 
     componentDidMount(){
-        fetch("api/CAHashing/Rule/")
+        fetch("https://jacob-toomey.com/api/CAHashing/Rule/")
         .then((res) => {
             if(res.ok)
             {
                 return res.json();
             }
 
-            res.json().then((err) => console.log(err));
+            this.setState({error: "Error loading resource"});
         })
         .then((data) => {
             if(data)
@@ -112,7 +113,7 @@ class CAHashing extends React.Component{
 
         const {input, iterations} = this.state;
 
-        fetch(`api/CAHashing/?input=${input}&iterations=${iterations}`)
+        fetch(`https://jacob-toomey.com/api/CAHashing/?input=${input}&iterations=${iterations}`)
         .then((res) => {
             if(res.ok)
             {
