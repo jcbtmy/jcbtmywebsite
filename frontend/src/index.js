@@ -4,7 +4,7 @@ import './css/index.css';
 import UserInterface from './UserInterface';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
 } from "react-router-dom";
 
@@ -16,7 +16,7 @@ const CloudComponent = React.lazy(() => import('./Components/Clouds'));
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Switch>
+      <Routes>
           <Route exact path="/">
             <UserInterface />
           </Route>
@@ -40,7 +40,7 @@ ReactDOM.render(
               <CloudComponent />
             </Suspense>
           </Route>
-      </Switch>
+      </Routes>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
