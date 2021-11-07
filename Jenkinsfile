@@ -14,12 +14,13 @@ pipeline{
             steps{
                 
                 echo "-->Building Front End<----"
+
+                sh "mkdir backend/wwwroot"
                 
                  //build compile front end src
                 dir("frontend"){
 
                     sh "npm install"
-                    
                     sh "./build.sh"
                     
                 }
