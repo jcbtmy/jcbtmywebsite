@@ -1,7 +1,6 @@
 pipeline{
     
     environment {
-        
         imagename = "jcbtmywebsite:latest"
     }
     
@@ -18,6 +17,8 @@ pipeline{
                 
                  //build compile front end src
                 dir("frontend"){
+
+                    sh "npm install"
                     
                     sh "./build.sh"
                     
